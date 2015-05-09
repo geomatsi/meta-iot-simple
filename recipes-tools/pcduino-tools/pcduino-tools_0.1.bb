@@ -15,7 +15,9 @@ B = "${WORKDIR}/build"
 
 inherit cmake
 
-DEPENDS += "libnrf24"
+DEPENDS += "libnrf24 protobuf-c protobuf-c-native"
+
+EXTRA_OECMAKE = "-DKERNEL_DIR:PATH=${STAGING_KERNEL_DIR}"
 
 do_install () {
     install -d ${D}/${sbindir}

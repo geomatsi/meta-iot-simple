@@ -15,7 +15,7 @@ B = "${WORKDIR}/build"
 
 inherit cmake
 
-DEPENDS += "libnrf24 protobuf-c protobuf-c-native"
+DEPENDS += "libnrf24 protobuf-c protobuf-c-native mosquitto"
 
 EXTRA_OECMAKE = "-DKERNEL_DIR:PATH=${STAGING_KERNEL_DIR}"
 

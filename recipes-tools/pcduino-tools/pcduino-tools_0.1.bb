@@ -17,7 +17,7 @@ inherit cmake
 
 DEPENDS += "libnrf24 protobuf-c protobuf-c-native mosquitto"
 
-EXTRA_OECMAKE = "-DKERNEL_DIR:PATH=${STAGING_KERNEL_DIR} -DWITH_NRF24_MOSQUITTO_TEST=ON -DNRF24_CONN='SPIDEV'"
+EXTRA_OECMAKE = "-DKERNEL_DIR:PATH=${STAGING_KERNEL_DIR} -DWITH_NRF24_MOSQUITTO_TEST=ON -DNRF24_CONN='PCDUINO'"
 
 do_install () {
     install -d ${D}/${sbindir}

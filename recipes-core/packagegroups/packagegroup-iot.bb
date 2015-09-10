@@ -4,6 +4,6 @@ LICENSE = "MIT"
 inherit packagegroup
 
 RDEPENDS_${PN} = "\
-    pcduino-tools \
+    nrf24-tools \
     mosquitto \
     "

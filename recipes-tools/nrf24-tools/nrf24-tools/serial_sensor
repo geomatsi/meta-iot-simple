@@ -1,0 +1,35 @@
+#!/bin/sh
+
+start() {
+	printf "Starting serial_sensor: "
+	start-stop-daemon -S -q -m -b -p /var/run/serial_sensor.pid \
+		--exec /usr/sbin/serial_mosquitto_test \
+		-- --publish-message --dump-message --daemon
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+}
+stop() {
+	printf "Stopping serial_sensor: "
+	start-stop-daemon -K -q -p /var/run/serial_sensor.pid
+	[ $? = 0 ] && echo "OK" || echo "FAIL"
+}
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+  start)
+	start
+	;;
+  stop)
+	stop
+	;;
+  restart|reload)
+	restart
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+
+exit $?

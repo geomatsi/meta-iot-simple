@@ -2,14 +2,14 @@
 
 start() {
 	printf "Starting serial_sensor: "
-	start-stop-daemon -S -q -m -b -p /var/run/serial_sensor.pid \
+	start-stop-daemon -S -q \
 		--exec /usr/sbin/serial_mosquitto_test \
 		-- --publish-message --dump-message --daemon
 	[ $? = 0 ] && echo "OK" || echo "FAIL"
 }
 stop() {
 	printf "Stopping serial_sensor: "
-	start-stop-daemon -K -q -p /var/run/serial_sensor.pid
+	start-stop-daemon -K -q -x /usr/sbin/serial_mosquitto_test
 	[ $? = 0 ] && echo "OK" || echo "FAIL"
 }
 restart() {

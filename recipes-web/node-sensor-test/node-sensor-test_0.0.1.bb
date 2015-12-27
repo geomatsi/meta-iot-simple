@@ -21,6 +21,8 @@ do_install () {
 	install -m 0644 ${S}/public/flot.css ${D}/www/sensor/public/flot.css
 	install -m 0644 ${S}/public/index.html ${D}/www/sensor/public/index.html
 
+    cp -r ${S}/config ${D}/www/sensor/
+
     cp -r ${S}/node_modules ${D}/www/sensor/
     cp -r ${S}/public/bower_components ${D}/www/sensor/public/
 }

@@ -13,9 +13,11 @@ S = "${WORKDIR}/git"
 
 PARALLEL_MAKE = ""
 
-export TARGET = "${TARGET_OS}"
-
 CFLAGS_prepend = " -I ${S}/include "
+
+do_compile() {
+	make CROSS_COMPILE="${TARGET_SYS}" TARGET="${TARGET_OS}" CC="${TARGET_PREFIX}gcc ${TOOLCHAIN_OPTIONS}"
+}
 
 do_install () {
     install -d ${D}/${libdir}

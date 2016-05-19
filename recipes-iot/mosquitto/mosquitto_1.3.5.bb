@@ -13,7 +13,7 @@ SRC_URI = "http://mosquitto.org/files/source/mosquitto-1.3.5.tar.gz \
 
 inherit cmake pkgconfig useradd update-rc.d
 
-DEPENDS += "c-ares"
+DEPENDS += "c-ares openssl"
 
 SRC_URI[md5sum] = "55094ad4dc7c7985377f43d4fc3d09da"
 SRC_URI[sha256sum] = "16eb3dbef183827665feee9288362c7352cd016ba04ca0402a0ccf857d1c2ab2"
@@ -28,3 +28,5 @@ do_install_append() {
     install -d ${D}${sysconfdir}/init.d
     install -m 0755 ${WORKDIR}/mosquitto ${D}${sysconfdir}/init.d/mosquitto
 }
+
+RDEPENDS_${PN} += "libcrypto libssl"

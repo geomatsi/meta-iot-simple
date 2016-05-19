@@ -2,12 +2,11 @@ SUMMARY = "nRF24L01 library"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d690"
 
-SRCREV = "${AUTOREV}"
+SRC_URI = "git://github.com/geomatsi/libnrf24.git;protocol=git"
+SRCREV = "cf67293730d1c7e189ced972c1bbe1b6eaab8374"
 
 PR = "r0"
 PV = "1.1+git${SRCPV}"
-
-SRC_URI = "git://github.com/geomatsi/libnrf24.git;protocol=git"
 
 S = "${WORKDIR}/git"
 

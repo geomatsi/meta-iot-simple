@@ -3,14 +3,13 @@ SUMMARY  = "Tools for pcDuino boards"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/LICENSE;md5=4d92cd373abda3937c2bc47fbc49d690"
 
-SRCREV = "${AUTOREV}"
-
-PR = "r0"
-PV = "1.1+git${SRCPV}"
-
 SRC_URI = "git://github.com/geomatsi/nrf24-tools.git;protocol=git \
         file://serial_sensor \
         "
+SRCREV = "0e5d9feac25dfb80d441efae4a6fbe5468c7c82d"
+
+PR = "r0"
+PV = "1.1+git${SRCPV}"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"

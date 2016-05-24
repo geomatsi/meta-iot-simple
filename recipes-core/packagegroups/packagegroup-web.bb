@@ -5,4 +5,5 @@ inherit packagegroup
 
 RDEPENDS_${PN} = "\
     node \
+    node-sensor-test \
     "

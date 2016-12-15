@@ -13,18 +13,16 @@ S = "${WORKDIR}/git"
 
 PARALLEL_MAKE = ""
 
-CFLAGS_prepend = " -I ${S}/include "
-
 do_compile() {
-	make CROSS_COMPILE="${TARGET_SYS}" TARGET="${TARGET_OS}" CC="${TARGET_PREFIX}gcc ${TOOLCHAIN_OPTIONS}"
+	make CROSS_COMPILE="${TARGET_SYS}" TARGET="${TARGET_OS}" CC="${CC}"
 }
 
 do_install () {
-    install -d ${D}/${libdir}
+	install -d ${D}/${libdir}
 	install -m 0644 ${S}/libnrf24_${TARGET_OS}.a ${D}/${libdir}/libnrf24.a
 
-    install -d ${D}${includedir}/linux/nrf24
-    install -m 0644 ${S}/include/RF24.h ${D}${includedir}/linux/nrf24/RF24.h
-    install -m 0644 ${S}/include/nRF24L01.h ${D}${includedir}/linux/nrf24/nRF24L01.h
+	install -d ${D}${includedir}/linux/nrf24
+	install -m 0644 ${S}/include/RF24.h ${D}${includedir}/linux/nrf24/RF24.h
+	install -m 0644 ${S}/include/nRF24L01.h ${D}${includedir}/linux/nrf24/nRF24L01.h
 }
 

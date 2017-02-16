@@ -26,5 +26,7 @@ RDEPENDS_${PN} = "\
     iputils \
     net-tools \
     spitools \
-	lrzsz \
+    lrzsz \
+    avahi-daemon \
+    avahi-utils \
     "

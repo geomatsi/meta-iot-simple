@@ -7,7 +7,7 @@ SRCREV = "${AUTOREV}"
 PR = "r0"
 PV = "0.0.1+git${SRCPV}"
 
-SRC_URI = "git://git@github.com/geomatsi/node-sensor-test.git;branch=master;protocol=ssh"
+SRC_URI = "git://git@github.com/geomatsi/node-sensor-test.git;branch=master;protocol=https"
 
 inherit npm-install bower-install
 

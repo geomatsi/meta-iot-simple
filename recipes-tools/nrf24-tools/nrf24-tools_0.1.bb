@@ -8,7 +8,7 @@ SRCREV = "${AUTOREV}"
 PR = "r0"
 PV = "1.1+git${SRCPV}"
 
-SRC_URI = "git://github.com/geomatsi/nrf24-tools.git;protocol=git \
+SRC_URI = "git://github.com/geomatsi/nrf24-tools.git;protocol=https \
         file://serial_sensor \
         "
 

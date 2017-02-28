@@ -7,7 +7,7 @@ SRCREV = "${AUTOREV}"
 PR = "r0"
 PV = "1.1+git${SRCPV}"
 
-SRC_URI = "git://github.com/geomatsi/libnrf24.git;protocol=git"
+SRC_URI = "git://github.com/geomatsi/libnrf24.git;protocol=https"
 
 S = "${WORKDIR}/git"
 

@@ -49,6 +49,7 @@ do_install () {
 	install -m 0755 ${B}/nrf24_test_ptx ${D}/${sbindir}/nrf24_test_ptx
 	install -m 0755 ${B}/nrf24_test_prx ${D}/${sbindir}/nrf24_test_prx
 	install -m 0755 ${B}/nrf24_test_hub ${D}/${sbindir}/nrf24_test_hub
+	install -m 0755 ${B}/nrf24_dump_regs ${D}/${sbindir}/nrf24_dump_regs
 	install -m 0755 ${B}/nrf24_mosquitto_pub ${D}/${sbindir}/nrf24_mosquitto_pub
 }
 

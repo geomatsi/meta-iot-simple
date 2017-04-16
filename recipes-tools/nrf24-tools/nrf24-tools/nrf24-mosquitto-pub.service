@@ -1,0 +1,17 @@
+# To consult the log : journalctl -u nrf24_mosquitto_pub
+
+[Unit]
+Description=nRF24 mosquitto test app
+After=syslog.target network.target mosquitto.service
+
+[Service]
+ExecStart=/usr/sbin/nrf24_mosquitto_pub --dynamic-payload --publish-message
+User=root
+Group=root
+SyslogIdentifier=nrf24_mosquitto_pub
+StandardOutput=syslog
+Restart=on-failure
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target

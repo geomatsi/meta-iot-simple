@@ -11,6 +11,8 @@ PV = "1.1+git${SRCPV}"
 SRC_URI = "git://github.com/geomatsi/nrf24-tools.git;protocol=https \
         file://serial_sensor \
         file://nrf24-mosquitto-pub.service \
+        file://orange-pi-zero.cfg \
+        file://orange-pi-one.cfg \
         "
 
 S = "${WORKDIR}/git"
@@ -20,7 +22,7 @@ inherit cmake update-rc.d systemd
 
 SYSTEMD_SERVICE_${PN} = "nrf24-mosquitto-pub.service"
 
-DEPENDS += "libnrf24 protobuf-c protobuf-c-native mosquitto"
+DEPENDS += "libnrf24 protobuf-c protobuf-c-native mosquitto json-c"
 
 EXTRA_OECMAKE_append_pcduino = " \
 	-DKERNEL_DIR:PATH=${STAGING_KERNEL_DIR} \
@@ -55,6 +57,16 @@ do_install () {
 
 	install -d ${D}${systemd_unitdir}/system/
 	install -m 0644 ${WORKDIR}/nrf24-mosquitto-pub.service ${D}${systemd_unitdir}/system/
+}
+
+do_install_append_orange-pi-zero () {
+	install -d ${D}${sysconfdir}/nrf24
+	install -m 0755 ${WORKDIR}/orange-pi-zero.cfg ${D}${sysconfdir}/nrf24/basic.cfg
+}
+
+do_install_append_orange-pi-one () {
+	install -d ${D}${sysconfdir}/nrf24
+	install -m 0755 ${WORKDIR}/orange-pi-one.cfg ${D}${sysconfdir}/nrf24/basic.cfg
 }
 
 do_install_append_pcduino () {

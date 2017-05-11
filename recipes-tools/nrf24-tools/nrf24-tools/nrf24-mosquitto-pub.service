@@ -5,7 +5,7 @@ Description=nRF24 mosquitto test app
 After=syslog.target network.target mosquitto.service
 
 [Service]
-ExecStart=/usr/sbin/nrf24_mosquitto_pub --dynamic-payload --publish-message
+ExecStart=/usr/sbin/nrf24_mosquitto_pub --publish-message -C /etc/nrf24/basic.cfg
 User=root
 Group=root
 SyslogIdentifier=nrf24_mosquitto_pub

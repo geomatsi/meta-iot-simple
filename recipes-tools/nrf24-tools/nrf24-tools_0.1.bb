@@ -10,8 +10,6 @@ PV = "1.1+git${SRCPV}"
 
 SRC_URI = "git://github.com/geomatsi/nrf24-tools.git;protocol=https \
         file://nrf24-mosquitto-pub.service \
-	file://test-spidev0.cfg \
-	file://test-spidev1.cfg \
         "
 
 S = "${WORKDIR}/git"
@@ -23,25 +21,9 @@ SYSTEMD_SERVICE_${PN} = "nrf24-mosquitto-pub.service"
 
 DEPENDS += "libnrf24 protobuf-c protobuf-c-native mosquitto json-c"
 
-EXTRA_OECMAKE_append_pcduino = " \
+EXTRA_OECMAKE_append = " \
 	-DKERNEL_DIR:PATH=${STAGING_KERNEL_DIR} \
-	-DNRF24_CONN='PCDUINO_UPSTREAM'"
-
-EXTRA_OECMAKE_append_pcduino-lite-wifi = " \
-	-DKERNEL_DIR:PATH=${STAGING_KERNEL_DIR} \
-	-DNRF24_CONN='PCDUINO_LEGACY'"
-
-EXTRA_OECMAKE_append_beaglebone = " \
-	-DKERNEL_DIR:PATH=${STAGING_KERNEL_DIR} \
-	-DNRF24_CONN='BONE'"
-
-EXTRA_OECMAKE_append_orange-pi-one = " \
-	-DKERNEL_DIR:PATH=${STAGING_KERNEL_DIR} \
-	-DNRF24_CONN='ORANGE_PI_ONE'"
-
-EXTRA_OECMAKE_append_orange-pi-zero = " \
-	-DKERNEL_DIR:PATH=${STAGING_KERNEL_DIR} \
-	-DNRF24_CONN='ORANGE_PI_ZERO'"
+	-DNRF24_CONN='SBC'"
 
 do_install () {
 	install -d ${D}/${sbindir}
@@ -57,20 +39,20 @@ do_install () {
 
 do_install_append_orange-pi-zero () {
 	install -d ${D}${sysconfdir}/nrf24
-	install -m 0755 ${WORKDIR}/test-spidev1.cfg ${D}${sysconfdir}/nrf24/basic.cfg
+	install -m 0755 ${S}/conf/orange-pi-zero.cfg ${D}${sysconfdir}/nrf24/basic.cfg
 }
 
 do_install_append_orange-pi-one () {
 	install -d ${D}${sysconfdir}/nrf24
-	install -m 0755 ${WORKDIR}/test-spidev0.cfg ${D}${sysconfdir}/nrf24/basic.cfg
+	install -m 0755 ${S}/conf/orange-pi-one.cfg ${D}${sysconfdir}/nrf24/basic.cfg
 }
 
 do_install_append_pcduino () {
 	install -d ${D}${sysconfdir}/nrf24
-	install -m 0755 ${WORKDIR}/test-spidev0.cfg ${D}${sysconfdir}/nrf24/basic.cfg
+	install -m 0755 ${S}/conf/pcduino-upstream.cfg ${D}${sysconfdir}/nrf24/basic.cfg
 }
 
 do_install_append_pcduino-lite-wifi () {
 	install -d ${D}${sysconfdir}/nrf24
-	install -m 0755 ${WORKDIR}/test-spidev0.cfg ${D}${sysconfdir}/nrf24/basic.cfg
+	install -m 0755 ${S}/conf/pcduino-legacy.cfg ${D}${sysconfdir}/nrf24/basic.cfg
 }

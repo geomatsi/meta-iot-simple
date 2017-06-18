@@ -20,7 +20,6 @@ do_compile() {
 do_install () {
 	install -d ${D}/${libdir}
 	install -m 0644 ${S}/libnrf24_${TARGET_OS}.a ${D}/${libdir}/libnrf24.a
-	install -m 0644 ${S}/libnrf24_mb_${TARGET_OS}.a ${D}/${libdir}/libnrf24_mb.a
 
 	install -d ${D}${includedir}/linux/nrf24
 	install -m 0644 ${S}/include/RF24.h ${D}${includedir}/linux/nrf24/RF24.h

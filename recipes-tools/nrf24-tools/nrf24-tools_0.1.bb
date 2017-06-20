@@ -39,20 +39,20 @@ do_install () {
 
 do_install_append_orange-pi-zero () {
 	install -d ${D}${sysconfdir}/nrf24
-	install -m 0755 ${S}/conf/orange-pi-zero.cfg ${D}${sysconfdir}/nrf24/basic.cfg
+	install -m 0755 ${S}/conf/orange-pi-zero.cfg ${D}${sysconfdir}/nrf24/default.cfg
 }
 
 do_install_append_orange-pi-one () {
 	install -d ${D}${sysconfdir}/nrf24
-	install -m 0755 ${S}/conf/orange-pi-one.cfg ${D}${sysconfdir}/nrf24/basic.cfg
+	install -m 0755 ${S}/conf/orange-pi-one.cfg ${D}${sysconfdir}/nrf24/default.cfg
 }
 
 do_install_append_pcduino () {
 	install -d ${D}${sysconfdir}/nrf24
-	install -m 0755 ${S}/conf/pcduino-upstream.cfg ${D}${sysconfdir}/nrf24/basic.cfg
+	install -m 0755 ${S}/conf/pcduino-upstream.cfg ${D}${sysconfdir}/nrf24/default.cfg
 }
 
 do_install_append_pcduino-lite-wifi () {
 	install -d ${D}${sysconfdir}/nrf24
-	install -m 0755 ${S}/conf/pcduino-legacy.cfg ${D}${sysconfdir}/nrf24/basic.cfg
+	install -m 0755 ${S}/conf/pcduino-legacy.cfg ${D}${sysconfdir}/nrf24/default.cfg
 }

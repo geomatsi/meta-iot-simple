@@ -1,5 +1,0 @@
-#
-#
-#
-
-hostname = "${MACHINE}-iot-hub"

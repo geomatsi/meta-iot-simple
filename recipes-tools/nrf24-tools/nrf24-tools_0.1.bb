@@ -42,6 +42,11 @@ do_install_append_orange-pi-zero () {
 	install -m 0755 ${S}/conf/orange-pi-zero.cfg ${D}${sysconfdir}/nrf24/default.cfg
 }
 
+do_install_append_orange-pi-zero-plus2 () {
+	install -d ${D}${sysconfdir}/nrf24
+	install -m 0755 ${S}/conf/orange-pi-zero-plus2.cfg ${D}${sysconfdir}/nrf24/default.cfg
+}
+
 do_install_append_orange-pi-one () {
 	install -d ${D}${sysconfdir}/nrf24
 	install -m 0755 ${S}/conf/orange-pi-one.cfg ${D}${sysconfdir}/nrf24/default.cfg
